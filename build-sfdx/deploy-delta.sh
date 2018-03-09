@@ -28,7 +28,7 @@ fi;
 DEPLOY_COMMAND="force push "
 for item in ${FILES_CHANGED}
 do
-	if [[ ${item} = *"src/destructiveChanges"* ]]; then
+	if [[ ${item} = *"src/destructiveChanges"* ]] || [[ ${item} = *"src/package.xml"* ]]; then
 		echo "Ignore ${item}"
 	else
 		DEPLOY_COMMAND+=" -f "
