@@ -26,9 +26,11 @@ RUN apt-get -y remove golang-go \
 
 # Install Salesforce DX CLI. 
 RUN wget https://developer.salesforce.com/media/salesforce-cli/sfdx-linux-amd64.tar.xz -O sfdx-linux-amd64.tar.xz \
-	&& ls -la \
-	&& tar -xvJf sfdx-linux-amd64.tar.xz \
+  && mkdir sfdx \ 
+	&& tar -xvJf sfdx-linux-amd64.tar.xz -C sfdx --strip=1 \
+  && rm -rf sfdx-linux-amd64.tar.xz \
 	&& cd sfdx \
+  && ls -la \
 	&& ./install \
 	&& sfdx update \
 	&& cd ~

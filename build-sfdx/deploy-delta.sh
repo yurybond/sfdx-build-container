@@ -25,7 +25,7 @@ else
 	exit 0
 fi;
 
-DEPLOY_COMMAND="force push "
+DEPLOY_COMMAND="force push --ignorewarnings=true --allowmissingfiles=true "
 for item in ${FILES_CHANGED}
 do
 #for files from aura component folder we are going to pull full component directory

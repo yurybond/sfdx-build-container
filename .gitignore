@@ -4,3 +4,4 @@
 !.gitignore
 !build-sfdx
 !README.md
+!.travis.yml
