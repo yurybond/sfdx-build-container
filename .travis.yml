@@ -1,6 +1,8 @@
 sudo: true
 dist: trusty
 
+language: go
+
 jobs:
   include:
     - stage: Build and publish Salesforce DX
