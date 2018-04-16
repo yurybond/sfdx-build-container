@@ -10,5 +10,5 @@ jobs:
       - docker images
       - docker tag salesforce-dx $DOCKER_USERNAME/salesforce-dx:latest
       - docker push $DOCKER_USERNAME/salesforce-dx:latest
-    - stage: test
-      script: docker run --rm $DOCKER_USERNAME/salesforce-dx:latest
+#    - stage: test
+#      script: docker run --rm $DOCKER_USERNAME/salesforce-dx:latest

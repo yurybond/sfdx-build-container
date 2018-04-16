@@ -1,6 +1,6 @@
 # Docker container to run salesforce builds using Salesforce DX & Foce.com CLI
 
-https://travis-ci.org/yurybond/sfdx-build-container.svg?branch=master
+[![Build Status](https://travis-ci.org/yurybond/sfdx-build-container.svg?branch=master)](https://travis-ci.org/yurybond/sfdx-build-container)
 
 #Compiled image to use
 
