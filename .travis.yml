@@ -6,9 +6,9 @@ jobs:
     - stage: Build and publish Salesforce DX
       script:
       - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-      - docker build -t salesforce-dx .
+      - docker build -t salesforce-dx:latest build-sfdx
       - docker images
-      - docker tag salesforce-dx $DOCKER_USERNAME/salesforce-dx
-      - docker push $DOCKER_USERNAME/salesforce-dx
+      - docker tag salesforce-dx $DOCKER_USERNAME/salesforce-dx:latest
+      - docker push $DOCKER_USERNAME/salesforce-dx:latest
     - stage: test
       script: docker run --rm $DOCKER_USERNAME/salesforce-dx
