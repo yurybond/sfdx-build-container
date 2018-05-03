@@ -10,9 +10,7 @@ jobs:
       - docker images
       - docker tag salesforce-dx $DOCKER_USERNAME/salesforce-dx:$TRAVIS_BUILD_NUMBER
       - docker push $DOCKER_USERNAME/salesforce-dx:$TRAVIS_BUILD_NUMBER
-    - stage: Test
-      script: docker run --rm $DOCKER_USERNAME/salesforce-dx:latest
-    - stage: Set latest
-      script:
       - docker tag salesforce-dx $DOCKER_USERNAME/salesforce-dx:latest
       - docker push $DOCKER_USERNAME/salesforce-dx:latest
+    - stage: Test
+      script: docker run --rm $DOCKER_USERNAME/salesforce-dx:latest
