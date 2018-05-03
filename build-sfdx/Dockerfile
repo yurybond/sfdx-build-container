@@ -1,5 +1,5 @@
 # Set the base image
-FROM ubuntu
+FROM golang:latest
 # Dockerfile author / maintainer 
 MAINTAINER Yury Bondarau <ybondarau@atlasprofessionals.com> 
 
@@ -7,27 +7,19 @@ MAINTAINER Yury Bondarau <ybondarau@atlasprofessionals.com>
 RUN apt-get update \
   && apt-get install -y wget \
   && apt-get install xz-utils \
-  && apt-get install -y git \
-  && apt-get install -y golang-go
+  && apt-get install -y git
 
 # Install Force.com CLI. 
 #RUN wget http://force-cli.herokuapp.com/releases/v0.22.84/linux-amd64/force -O /usr/local/bin/force \
 #	&& chmod +x /usr/local/bin/force
-RUN mkdir $HOME/go \
-  && export GOPATH=$HOME/go \
-  && export PATH=$PATH:$GOROOT/bin:$GOPATH/bin \
-  && go get -u github.com/ForceCLI/force \
+RUN go get -u github.com/ForceCLI/force \
   && cp $GOPATH/bin/force /usr/local/bin/ \
   && chmod +x /usr/local/bin/force
 
-#Golang no more required
-RUN apt-get -y remove golang-go \ 
-  && apt-get -y remove --auto-remove golang-go
-
 # Install Salesforce DX CLI. 
-RUN wget https://developer.salesforce.com/media/salesforce-cli/sfdx-linux-amd64.tar.xz -O sfdx-linux-amd64.tar.xz \
+RUN wget https://developer.salesforce.com/media/salesforce-cli/sfdx-linux-amd64.tar.xz -O sfdx-linux-amd64.tar.xz -q\
   && mkdir sfdx \ 
-	&& tar -xvJf sfdx-linux-amd64.tar.xz -C sfdx --strip=1 \
+	&& tar -xJf sfdx-linux-amd64.tar.xz -C sfdx --strip=1 \
   && rm -rf sfdx-linux-amd64.tar.xz \
 	&& cd sfdx \
   && ls -la \

@@ -7,7 +7,8 @@ jobs:
       script:
       - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
       - docker build -t salesforce-dx build-sfdx
-      - docker images
+      - docker tag salesforce-dx $DOCKER_USERNAME/salesforce-dx:v$MAJOR_VERSION.$TRAVIS_BUILD_NUMBER
+      - docker push $DOCKER_USERNAME/salesforce-dx:v$MAJOR_VERSION.$TRAVIS_BUILD_NUMBER
       - docker tag salesforce-dx $DOCKER_USERNAME/salesforce-dx:$TRAVIS_BUILD_NUMBER
       - docker push $DOCKER_USERNAME/salesforce-dx:$TRAVIS_BUILD_NUMBER
       - docker tag salesforce-dx $DOCKER_USERNAME/salesforce-dx:latest
