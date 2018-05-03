@@ -19,7 +19,7 @@ RUN go get -u github.com/ForceCLI/force \
 # Install Salesforce DX CLI. 
 RUN wget https://developer.salesforce.com/media/salesforce-cli/sfdx-linux-amd64.tar.xz -O sfdx-linux-amd64.tar.xz -q\
   && mkdir sfdx \ 
-	&& tar -xvJf sfdx-linux-amd64.tar.xz -C sfdx --strip=1 \
+	&& tar -xJf sfdx-linux-amd64.tar.xz -C sfdx --strip=1 \
   && rm -rf sfdx-linux-amd64.tar.xz \
 	&& cd sfdx \
   && ls -la \
