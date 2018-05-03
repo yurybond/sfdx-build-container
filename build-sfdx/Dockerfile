@@ -24,6 +24,7 @@ RUN wget https://developer.salesforce.com/media/salesforce-cli/sfdx-linux-amd64.
 	&& cd sfdx \
   && ls -la \
 	&& ./install \
+	&& sfdx update \
 	&& cd ~
 # Create a bash script to 
 COPY deploy-delta.sh /usr/local/bin/deploy-delta.sh
