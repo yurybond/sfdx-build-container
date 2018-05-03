@@ -33,7 +33,7 @@ do
 		AURA_COMPONENT_DIR=$(dirname "${item}")
 		DEPLOY_COMMAND+=" -f "
 		DEPLOY_COMMAND+="\"${AURA_COMPONENT_DIR}\""
-	elif [[ ${item} =~ src/reports/[A-Za-z0-9_]+-meta\.xml$ ]] || [[ ${item} =~ src/dashboards/[A-Za-z0-9_]+-meta\.xml$ ]]; then
+	elif [[ ${item} =~ src/reports/[A-Za-z0-9_]+-meta\.xml$ ]] || [[ ${item} =~ src/dashboards/[A-Za-z0-9_]+-meta\.xml$ ]] || [[ ${item} =~ src/email/[A-Za-z0-9_]+-meta\.xml$ ]]; then
 		REPORT_OR_DASHBOARD_DIR=${item%"-meta.xml"}
 		DEPLOY_COMMAND+=" -f "
 		DEPLOY_COMMAND+="\"${REPORT_OR_DASHBOARD_DIR}\""

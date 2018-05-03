@@ -18,7 +18,7 @@ RUN mkdir $HOME/go \
   && export PATH=$PATH:$GOROOT/bin:$GOPATH/bin \
   && go get -u github.com/ForceCLI/force \
   && cp $GOPATH/bin/force /usr/local/bin/ \
-  && chmod +x /usr/local/bin/force 
+  && chmod +x /usr/local/bin/force
 
 #Golang no more required
 RUN apt-get -y remove golang-go \ 
