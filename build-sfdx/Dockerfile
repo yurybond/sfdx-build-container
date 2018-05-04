@@ -4,10 +4,10 @@ FROM golang:latest
 MAINTAINER Yury Bondarau <ybondarau@atlasprofessionals.com> 
 
 # Install utilities required for Force.com CLI and Salesforce CLI. 
-RUN apt-get update \
-  && apt-get install -y wget \
-  && apt-get install xz-utils \
-  && apt-get install -y git
+RUN apt-get update 
+RUN apt-get install -y wget 
+RUN apt-get install xz-utils 
+RUN apt-get install -y git
 
 # Install Force.com CLI. 
 #RUN wget http://force-cli.herokuapp.com/releases/v0.22.84/linux-amd64/force -O /usr/local/bin/force \
